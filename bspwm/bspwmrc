@@ -1,0 +1,40 @@
+#! /bin/sh
+
+# If picom is running, kill it to prevent multiple instances
+if ps -A | grep picom; then
+	killall -q picom
+fi
+
+# If sxhkd is running, kill it to prevent multiple instances
+if ps -A | grep picom; then
+	killall -q sxhkd
+fi
+
+# Background and transparancy
+feh --bg-center $HOME/.config/wallpaper.png
+picom --experimental-backends --daemon
+
+# Sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# Screens
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# Window condifuration
+bspc config border_width         1
+bspc config window_gap           14
+#bspc config active_border_color  \#48f49f
+#bspc config normal_border_color  \#48f49f
+#bspc config focused_border_color \#48f49f
+
+# BSPWM misc config
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# Apps
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a Chromium desktop='^2'
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off

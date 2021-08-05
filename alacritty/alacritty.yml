@@ -1,0 +1,40 @@
+background_opacity: 0.7  # value range is 0 ~ 1
+
+schemes:
+  # Eerie black theme.
+  #  https://github.com/Kugge/Eerie-Theme
+  eerie-pastel: &eerie-pastel
+    # Default colors
+    primary:
+      background: '0x15222d' # 
+      foreground: '0x96a0b0' 
+
+    # Normal colors
+    normal:
+      black:   '0x333a47' 
+      red:     '0xffadad' 
+      green:   '0xcaffbf' 
+      yellow:  '0xfaff70' 
+      blue:    '0xa0c4ff' 
+      magenta: '0xffadff' 
+      cyan:    '0x9bf6ff' 
+      white:   '0xfffffc' 
+
+    # Bright colors
+    bright:
+      black:   '0x2b303b'
+      red:     '0xff5c5c'
+      green:   '0x99ff85'
+      yellow:  '0xf9ff47'
+      blue:    '0x5c9aff'
+      magenta: '0xff70ff'
+      cyan:    '0x47f0ff'
+      white:   '0xdcdee4'
+
+colors: *eerie-pastel
+
+font:
+  size: 14
+  normal:
+    family: Terminus
+    style: Regular
