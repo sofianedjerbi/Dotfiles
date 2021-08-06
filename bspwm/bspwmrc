@@ -10,6 +10,9 @@ if ps -A | grep picom; then
 	killall -q sxhkd
 fi
 
+# User programs
+mpd
+
 # Background and transparancy
 feh --bg-center $HOME/.config/wallpaper.png
 picom --experimental-backends --daemon
