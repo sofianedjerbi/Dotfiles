@@ -7,8 +7,8 @@ configuration {
   modi: "window,run,drun";
   show-icons: false;
   terminal: "alacritty";
-  width: 350;
-  lines: 8;
+  width: 250;
+  lines: 5;
 }
 
 * {
@@ -48,7 +48,7 @@ inputbar {
 
 listview {
   columns: 1;
-  lines: 8;
+  lines: 5;
 }
 
 mainbox {
