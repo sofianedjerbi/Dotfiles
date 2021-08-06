@@ -128,8 +128,18 @@ super + {Left,Down,Up,Right}
 # Shortcuts
 #
 
+# Audio
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -1%
+	bash $HOME/.config/sxhkd/change_main_volume.sh -1%
 
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +1%
+	bash $HOME/.config/sxhkd/change_main_volume.sh +1%
+
+# Print screen
+# Without the sleep scrot crashes
+Print
+    sleep 0.2; \
+    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
+
+control + Print
+    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
