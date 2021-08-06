@@ -19,9 +19,9 @@
 [colors]
 
 background = #191c21
-color1 = #48f49f
-color2 = #48f49f
-color3 = #48f49f
+color1 = #9bafbf
+color2 = #c5ccd3
+color3 = #b1c8d2
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -48,11 +48,11 @@ offset-y = 10
 
 [bar/block-bspwm]
 inherit = bar/base
-width = 35%
+width = 20%
 
 foreground = ${colors.color1}
 
-offset-x = 10
+offset-x = 20
 
 
 modules-left = bspwm wsnumber xwindow
@@ -64,10 +64,10 @@ scroll-down =  bspc desktop -f prev
 [bar/block-music]
 inherit = bar/base
 enable-ipc = true
-width = 28%
+width = 27%
 
 foreground = ${colors.color2}
-offset-x = 55.5%
+offset-x = 37%
 
 ; Spotify (script at github.com/dietervanhoof/polybar-spotify-controls)
 ;modules-left = previous playpause next spotify
@@ -76,10 +76,10 @@ modules-left = mpd
 
 [bar/block-tray]
 inherit = bar/base
-width = 15.5%
+width = 14%
 
 padding-right = 0
-offset-x = 84%
+offset-x = 85%
 
 ;tray-position = right
 
@@ -106,7 +106,7 @@ scroll-down = bspc desktop -f prev
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:50:...%
+label = %title:0:20:...%
 label-foreground = ${colors.color1} 
 label-background = ${colors.background} 
 label-padding = 2
@@ -121,7 +121,8 @@ content-padding = 2
 [module/mpd]
 type = internal/mpd
 host = 127.0.0.1
-port = 6677
+port = 6600
+label-song = %title%
 format-online =  <icon-prev> <toggle> <icon-next>  <label-song><label-time>
 format-online-padding = 2
 format-online-background = ${colors.color2}
@@ -134,7 +135,7 @@ label-time-background = ${colors.background}
 label-time-padding = 1
 
 format-offline = <label-offline>
-label-offline =  offline
+label-offline = "                    MPD server offline"
 format-offline-padding = 2
 format-offline-foreground = ${colors.color2}
 format-offline-background = ${colors.background}
@@ -150,7 +151,7 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 38
+label-song-maxlen = 36
 label-song-ellipsis = true
 
 [module/time]
@@ -246,6 +247,9 @@ label-focused = 
 label-focused-font = 3
 label-focused-foreground = ${colors.background}
 label-focused-padding = 1
+
+label-empty = ""
+label-empty-foreground = ${colors.background}
 
 label-unfocused = 
 label-unfocused-font = 2
