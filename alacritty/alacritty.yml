@@ -7,29 +7,29 @@ schemes:
     # Default colors
     primary:
       background: '0x15222d' # 
-      foreground: '0x96a0b0' 
+      foreground: '0xaeb5c1' 
 
-    # Normal colors
-    normal:
-      black:   '0x333a47' 
-      red:     '0xffadad' 
-      green:   '0xcaffbf' 
-      yellow:  '0xfaff70' 
-      blue:    '0xa0c4ff' 
-      magenta: '0xffadff' 
-      cyan:    '0x9bf6ff' 
-      white:   '0xfffffc' 
+# Normal colors
+  normal:
+    black:   '0x3F3F3F'
+    red:     '0x705050'
+    green:   '0x60B48A'
+    yellow:  '0xDFAF8F'
+    blue:    '0x9AB8D7'
+    magenta: '0xDC8CC3'
+    cyan:    '0x8CD0D3'
+    white:   '0xDCDCCC'
 
-    # Bright colors
-    bright:
-      black:   '0x2b303b'
-      red:     '0xff5c5c'
-      green:   '0x99ff85'
-      yellow:  '0xf9ff47'
-      blue:    '0x5c9aff'
-      magenta: '0xff70ff'
-      cyan:    '0x47f0ff'
-      white:   '0xdcdee4'
+  # Bright colors
+  bright:
+    black:   '0x709080'
+    red:     '0xDCA3A3'
+    green:   '0x72D5A3'
+    yellow:  '0xF0DFAF'
+    blue:    '0x94BFF3'
+    magenta: '0xEC93D3'
+    cyan:    '0x93E0E3'
+    white:   '0xFFFFFF'
 
 colors: *eerie-pastel
 
