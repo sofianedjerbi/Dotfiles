@@ -111,16 +111,17 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Initialize plugin system
 
 Plug 'neovimhaskell/haskell-vim' " Haskell colors
-
+Plug 'rust-lang/rust.vim' " Rust plugin
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'glepnir/dashboard-nvim' " Dashboard
 
 call plug#end()
+filetype plugin indent on
 
 "
 " USER CONFIG
 "
-
+syntax enable
 set laststatus=0
 set number
 set colorcolumn=80
