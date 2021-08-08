@@ -55,7 +55,7 @@ foreground = ${colors.color1}
 offset-x = 20
 
 
-modules-left = bspwm wsnumber xwindow
+modules-left = bspwm xwindow
 
 scroll-up = bspc desktop -f next
 scroll-down =  bspc desktop -f prev
@@ -238,7 +238,7 @@ enable-scroll = false
 reverse-scroll = false
 
 format-padding = 1
-format = <label-state> <label-mode>
+format = <label-state>
 format-background = ${colors.color1}
 
 label-focused = 
@@ -246,8 +246,15 @@ label-focused-font = 3
 label-focused-foreground = ${colors.background}
 label-focused-padding = 1
 
+label-occupied = %name%
+label-occupied-font = 3
+label-occupied-foreground = ${colors.background}
+label-occupied-padding = 1
+
 label-empty = ""
+label-empty-font = 3
 label-empty-foreground = ${colors.background}
+label-empty-padding = 1
 
 label-unfocused = 
 label-unfocused-font = 2
