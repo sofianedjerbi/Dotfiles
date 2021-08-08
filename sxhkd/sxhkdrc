@@ -62,8 +62,8 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-super + {Left,Down,Up,Right}
-    bspc window -f {left,down,up,right}
+super + alt + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
 
 
 # focus the node for the given path jump
@@ -139,6 +139,9 @@ XF86AudioLowerVolume
 
 XF86AudioRaiseVolume
 	bash $HOME/.config/sxhkd/change_main_volume.sh +1%
+
+XF86AudioMute
+	amixer -D pulse set Master toggle
 
 # Print screen
 # Without the sleep scrot crashes
