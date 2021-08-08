@@ -114,6 +114,7 @@ Plug 'neovimhaskell/haskell-vim' " Haskell colors
 Plug 'rust-lang/rust.vim' " Rust plugin
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'glepnir/dashboard-nvim' " Dashboard
+Plug 'preservim/nerdtree' " explorer
 
 call plug#end()
 filetype plugin indent on
