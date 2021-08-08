@@ -90,7 +90,7 @@ super + {o,i}
 
 # Change desktop or send window to desktop (azerty)
 super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
-	bspc {desktop -f,window -d} ^{1-9,10}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 
 #
