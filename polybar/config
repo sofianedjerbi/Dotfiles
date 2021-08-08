@@ -73,6 +73,7 @@ offset-x = 37%
 ;modules-left = previous playpause next spotify
 ; Mpd
 modules-left = mpd
+modules-right = mpdTime
 
 [bar/block-tray]
 inherit = bar/base
@@ -123,7 +124,7 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 label-song = %title%
-format-online =  <icon-prev> <toggle> <icon-next>  <label-song><label-time>
+format-online =  <icon-prev> <toggle> <icon-next>  <label-song>
 format-online-padding = 2
 format-online-background = ${colors.color2}
 format-online-foreground = ${colors.background}
@@ -151,8 +152,19 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 36
+label-song-maxlen = 30
 label-song-ellipsis = true
+
+[module/mpdTime]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online = <label-time>
+format-online-background = ${colors.color2}
+format-online-foreground = ${colors.background}
+label-time-foreground = ${colors.color2}
+label-time-background = ${colors.background}
+label-time-padding = 2
 
 [module/time]
 type = internal/date
