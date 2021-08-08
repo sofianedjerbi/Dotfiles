@@ -233,15 +233,13 @@ interval = 1
 
 [module/bspwm]
 type = internal/bspwm
-format = <label-state> <label-mode>
-format-padding = 1
-format-background = ${colors.color1}
-format-foreground = ${colors.background}
-index-sort = true
-wrapping-scroll = false
-
-enable-click = true
+pin-workspaces = true
+enable-scroll = false
 reverse-scroll = false
+
+format-padding = 1
+format = <label-state> <label-mode>
+format-background = ${colors.color1}
 
 label-focused = 
 label-focused-font = 3
@@ -260,6 +258,7 @@ label-urgent = 
 label-urgent-font = 1
 label-urgent-padding = 1
 label-urgent-foreground = ${colors.background}
+
 
 [settings]
 screenchange-reload = true
