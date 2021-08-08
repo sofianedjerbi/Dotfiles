@@ -1,9 +1,9 @@
 #! /bin/sh
 
 # If picom is running, kill it to prevent multiple instances
-if ps -A | grep picom; then
-	killall -q picom
-fi
+#if ps -A | grep picom; then
+#	killall -q picom
+#fi
 
 # If sxhkd is running, kill it to prevent multiple instances
 if ps -A | grep picom; then
@@ -17,11 +17,11 @@ fi
 
 # User programs
 #mpd
-bash $HOME/.config/polybar/launch.sh > /dev/null
+bash $HOME/.config/polybar/launch.sh -l=trace
 
 # Background and transparancy
 feh --bg-center $HOME/.config/wallpaper.png
-picom --experimental-backends --daemon
+#picom --experimental-backends --daemon
 
 # Sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
