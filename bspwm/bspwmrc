@@ -30,11 +30,12 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Window configuration
-bspc config border_width         1
-bspc config window_gap           20
-bspc config active_border_color  \#96a0b0
-bspc config normal_border_color  \#96a0b0
-bspc config focused_border_color \#96a0b0
+bspc config border_width                 1
+bspc config window_gap                   20
+bspc config active_border_color         \#96a0b0
+bspc config normal_border_color         \#96a0b0
+bspc config focused_border_color        \#96a0b0
+bspc config pointer_motion_interval      30ms
 
 # BSPWM misc config
 bspc config split_ratio          0.52
