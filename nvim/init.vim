@@ -110,11 +110,14 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 " Initialize plugin system
 
-Plug 'neovimhaskell/haskell-vim' " Haskell colors
-Plug 'rust-lang/rust.vim' " Rust plugin
+Plug 'Pocco81/AutoSave.nvim'         " Auto save
+Plug 'alaviss/nim.nvim'              " Nim colors
+Plug 'neovimhaskell/haskell-vim'     " Haskell colors
+Plug 'rust-lang/rust.vim'            " Rust plugin
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-Plug 'glepnir/dashboard-nvim' " Dashboard
-Plug 'preservim/nerdtree' " explorer
+Plug 'glepnir/dashboard-nvim'        " Dashboard
+Plug 'preservim/nerdtree'            " explorer
+Plug 'drewtempelmeyer/palenight.vim' " theme
 
 call plug#end()
 filetype plugin indent on
@@ -122,12 +125,29 @@ filetype plugin indent on
 "
 " USER CONFIG
 "
+autocmd BufWritePre * :%s/\s\+$//e
 syntax enable
+syntax on
+
+colorscheme palenight
+highlight Normal ctermbg=NONE " change background
+highlight nonText ctermbg=NONE " change background
+
 set laststatus=0
-set number
 set colorcolumn=80
-highlight LineNr ctermfg=white
+
+highlight LineNr ctermfg=white " num highlight
 highlight ColorColumn ctermbg=white
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+nmap <F6> :NERDTreeToggle<CR>
 let g:dashboard_custom_header = [
     \'',
     \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
