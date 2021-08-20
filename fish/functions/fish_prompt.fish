@@ -1,1 +1,0 @@
-/home/sofiane/.local/share/omf/themes/kawasaki/fish_prompt.fish
