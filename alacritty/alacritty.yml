@@ -2,7 +2,6 @@ background_opacity: 1  # value range is 0 ~ 1
 
 schemes:
   # Eerie black theme.
-  #  https://github.com/Kugge/Eerie-Theme
   eerie-pastel: &eerie-pastel
     # Default colors
     primary:
