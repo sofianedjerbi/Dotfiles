@@ -1,12 +1,12 @@
-background_opacity: 1  # value range is 0 ~ 1
+window.opacity: 1  # value range is 0 ~ 1
 
 schemes:
   # Eerie black theme.
   eerie-pastel: &eerie-pastel
     # Default colors
     primary:
-      background: '0x15222d' # 
-      foreground: '0xaeb5c1' 
+      background: '0x15222d' #
+      foreground: '0xaeb5c1'
 
 # Normal colors
   normal:
