@@ -103,13 +103,11 @@ endif
 
 " vim: set tw=80 sw=2 sts=2 et foldmethod=marker :
 
-" 
+"
 " PLUGINS
 "
-
 call plug#begin('~/.local/share/nvim/plugged')
 " Initialize plugin system
-
 Plug 'Pocco81/AutoSave.nvim'         " Auto save
 Plug 'alaviss/nim.nvim'              " Nim colors
 Plug 'neovimhaskell/haskell-vim'     " Haskell colors
@@ -118,8 +116,10 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'glepnir/dashboard-nvim'        " Dashboard
 Plug 'preservim/nerdtree'            " explorer
 Plug 'drewtempelmeyer/palenight.vim' " theme
-
+Plug 'JuliaEditorSupport/julia-vim'  " Julia plugin
+Plug 'joom/latex-unicoder.vim'       " Latex to utf8
 call plug#end()
+
 filetype plugin indent on
 
 "
@@ -135,6 +135,7 @@ highlight nonText ctermbg=NONE " change background
 
 set laststatus=0
 set colorcolumn=80
+set encoding=utf-8
 
 highlight LineNr ctermfg=white " num highlight
 highlight ColorColumn ctermbg=white
