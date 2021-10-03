@@ -24,6 +24,7 @@ config_file="/tmp/polybar_cava_config"
 echo "
 [general]
 bars = 7
+sensitivity = 200
 [output]
 method = raw
 raw_target = $pipe
