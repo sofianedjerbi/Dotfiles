@@ -214,7 +214,7 @@ label-muted-padding = 2
 [module/previous]
 type = custom/script
 format-font = 3
-format-padding = 2
+format-padding = 1
 format-background = ${colors.color2}
 format-foreground = ${colors.background}
 exec = echo "  "
@@ -225,7 +225,7 @@ click-left = "playerctl previous"
 [module/next]
 type = custom/script
 format-font = 3
-format-padding = 2
+format-padding = 1
 format-background = ${colors.color2}
 format-foreground = ${colors.background}
 exec = echo "  "
