@@ -20,12 +20,15 @@ rofi
 polybar
 pulseaudio
 neofetch
+spotifyd
+spotify-tui
+playerctl
+scrollz
 ueberzug (nymphos)
 ```
 ### Proprietary apps
 ```
 discord
-spotify
 ```
 
 ## Credits
