@@ -6,21 +6,32 @@
 #fi
 
 # If sxhkd is running, kill it to prevent multiple instances
-if ps -A | grep picom; then
+if ps -A | grep sxhkd; then
 	killall -q sxhkd
 fi
 
 # If polybar is running, kill it to prevent multiple instances
-if ps -A | grep picom; then
+if ps -A | grep polybar; then
         killall -q polybar
 fi
 
+# If spotifyd is running, kill it to prevent multiple instances
+if ps -A | grep spotifyd; then
+        killall -q spotifyd
+fi
+
+
 # User programs
-#mpd
+# Polybar
 bash $HOME/.config/polybar/launch.sh -l=trace
 
-# Background and transparancy
+# Spotifyd
+spotifyd
+
+# Background
 feh --bg-center $HOME/.config/wallpaper.png
+
+# Transparancy
 #picom --experimental-backends --daemon
 
 # Sxhkd
