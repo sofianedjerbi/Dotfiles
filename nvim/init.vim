@@ -118,7 +118,10 @@ Plug 'preservim/nerdtree'            " explorer
 Plug 'drewtempelmeyer/palenight.vim' " theme
 Plug 'JuliaEditorSupport/julia-vim'  " Julia plugin
 Plug 'joom/latex-unicoder.vim'       " Latex to utf8
+Plug 'jbyuki/instant.nvim'           " Collaborative editing
 call plug#end()
+
+let g:instant_username = "Kugge"
 
 filetype plugin indent on
 
@@ -136,6 +139,13 @@ highlight nonText ctermbg=NONE " change background
 set laststatus=0
 set colorcolumn=80
 set encoding=utf-8
+set number
+
+" Navigate with jklm (azerty equivalnet of jkl;) instead of hjkl
+noremap m l
+noremap l k
+noremap k j
+noremap j h
 
 highlight LineNr ctermfg=white " num highlight
 highlight ColorColumn ctermbg=white
