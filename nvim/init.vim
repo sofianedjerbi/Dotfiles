@@ -108,31 +108,35 @@ endif
 "
 call plug#begin('~/.local/share/nvim/plugged')
 " Initialize plugin system
-Plug 'Pocco81/AutoSave.nvim'         " Auto save
-Plug 'alaviss/nim.nvim'              " Nim colors
-Plug 'neovimhaskell/haskell-vim'     " Haskell colors
-Plug 'rust-lang/rust.vim'            " Rust plugin
+Plug 'Pocco81/AutoSave.nvim'            " Auto save
+Plug 'alaviss/nim.nvim'                 " Nim colors
+Plug 'neovimhaskell/haskell-vim'        " Haskell colors
+Plug 'rust-lang/rust.vim'               " Rust plugin
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-Plug 'glepnir/dashboard-nvim'        " Dashboard
-Plug 'preservim/nerdtree'            " explorer
-Plug 'drewtempelmeyer/palenight.vim' " theme
-Plug 'JuliaEditorSupport/julia-vim'  " Julia plugin
-Plug 'joom/latex-unicoder.vim'       " Latex to utf8
-Plug 'jbyuki/instant.nvim'           " Collaborative editing
+Plug 'glepnir/dashboard-nvim'           " Dashboard
+Plug 'preservim/nerdtree'               " explorer
+"Plug 'drewtempelmeyer/palenight.vim'   " theme
+Plug 'JuliaEditorSupport/julia-vim'     " Julia plugin
+Plug 'joom/latex-unicoder.vim'          " Latex to utf8
+Plug 'jbyuki/instant.nvim'              " Collaborative editing
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dracula/vim', { 'as': 'dracula' } " theme
 call plug#end()
 
-let g:instant_username = "Kugge"
+let g:instant_username = "Kugge" " Remote username
 
-filetype plugin indent on
+" Coc CMD :
+" :CocInstall coc-python
+" :CocInstall coc-clangd
+
 
 "
 " USER CONFIG
 "
-autocmd BufWritePre * :%s/\s\+$//e
 syntax enable
-syntax on
+colorscheme dracula
+filetype plugin indent on
 
-colorscheme palenight
 highlight Normal ctermbg=NONE " change background
 highlight nonText ctermbg=NONE " change background
 
@@ -142,11 +146,12 @@ set encoding=utf-8
 set number
 
 " Navigate with jklm (azerty equivalnet of jkl;) instead of hjkl
-noremap m l
-noremap l k
-noremap k j
-noremap j h
+"noremap m l
+"noremap l k
+"noremap k j
+"noremap j h
 
+" Number colors
 highlight LineNr ctermfg=white " num highlight
 highlight ColorColumn ctermbg=white
 
