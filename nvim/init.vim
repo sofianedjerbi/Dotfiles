@@ -121,11 +121,14 @@ Plug 'joom/latex-unicoder.vim'          " Latex to utf8
 Plug 'jbyuki/instant.nvim'              " Collaborative editing
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' } " theme
+Plug 'tpope/vim-surround'               " parenthesis/quoting
+Plug 'tomtom/tcomment_vim'              " comments
 call plug#end()
 
+" Plugin init/config
 let g:instant_username = "Kugge" " Remote username
 
-" Coc CMD :
+" Coc CMDs :
 " :CocInstall coc-python
 " :CocInstall coc-clangd
 
@@ -143,7 +146,12 @@ highlight nonText ctermbg=NONE " change background
 set laststatus=0
 set colorcolumn=80
 set encoding=utf-8
+set relativenumber
 set number
+
+" Enter to insert a blank line below, Shift + Enter to insert it above
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
 
 " Navigate with jklm (azerty equivalnet of jkl;) instead of hjkl
 "noremap m l
