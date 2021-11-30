@@ -127,6 +127,8 @@ call plug#end()
 
 " Plugin init/config
 let g:instant_username = "Kugge" " Remote username
+" USE F6 for nerdtree
+nmap <F6> :NERDTreeToggle<CR>
 
 " Coc CMDs :
 " :CocInstall coc-python
@@ -137,14 +139,13 @@ let g:instant_username = "Kugge" " Remote username
 " USER CONFIG
 "
 syntax enable
-colorscheme dracula
 filetype plugin indent on
 
 highlight Normal ctermbg=NONE " change background
 highlight nonText ctermbg=NONE " change background
 
 set laststatus=0
-set colorcolumn=80
+"set colorcolumn=80
 set encoding=utf-8
 set relativenumber
 set number
@@ -171,7 +172,15 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-nmap <F6> :NERDTreeToggle<CR>
+" Theme
+colorscheme dracula
+
+" Neovide config
+set guifont=Cozette:h10 " font
+let g:neovide_cursor_vfx_mode = "railgun" " vfx
+let g:neovide_refresh_rate=144 " 144 fps monitor
+
+" HEADER
 let g:dashboard_custom_header = [
     \'',
     \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
