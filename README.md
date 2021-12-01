@@ -1,5 +1,5 @@
 # Dotfiles
-![Preview](desktop.png)
+![Preview](preview.png)
 
 ## Main apps
 ### Open-source apps
