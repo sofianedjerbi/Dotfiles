@@ -180,6 +180,16 @@ set guifont=Cozette:h10 " font
 let g:neovide_cursor_vfx_mode = "railgun" " vfx
 let g:neovide_refresh_rate=144 " 144 fps monitor
 
+" Copy/paste
+" system clipboard
+nmap <c-c> "+y
+vmap <c-c> "+y
+nmap <c-v> "+p
+inoremap <c-v> <c-r>+
+cnoremap <c-v> <c-r>+
+" use <c-r> to insert original character without triggering things like auto-pairs
+inoremap <c-r> <c-v>"
+
 " HEADER
 let g:dashboard_custom_header = [
     \'',
