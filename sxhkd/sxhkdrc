@@ -147,7 +147,7 @@ XF86AudioMute
 # Without the sleep scrot crashes
 Print
     sleep 0.2; \
-    scrot -sf $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
+    scrot -s -f $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
 
 control + Print
     scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
