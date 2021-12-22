@@ -1,6 +1,5 @@
 #! /bin/bash
 
-#bar="▁▂▃▄▅▆▇█"
 bar="▁▂▃▄▅▆▇█"
 dict="s/;//g;"
 
@@ -24,7 +23,7 @@ config_file="/tmp/polybar_cava_config"
 echo "
 [general]
 bars = 7
-sensitivity = 200
+sensitivity = 400
 [output]
 method = raw
 raw_target = $pipe
@@ -39,3 +38,4 @@ cava -p $config_file &
 while read -r cmd; do 
     echo $cmd | sed $dict
 done < $pipe
+
