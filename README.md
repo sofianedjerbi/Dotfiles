@@ -1,7 +1,7 @@
 # Dotfiles
 ![Preview](preview.png)  
 
-## Infos
+## Info
 - OS: `Gentoo`
 - Drivers: `nvidia (closed source)`
 
