@@ -172,6 +172,10 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+" Session save/load
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+
 " Theme
 colorscheme dracula
 
@@ -179,6 +183,10 @@ colorscheme dracula
 set guifont=Cozette:h10 " font
 let g:neovide_cursor_vfx_mode = "railgun" " vfx
 let g:neovide_refresh_rate=144 " 144 fps monitor
+
+" Background colors
+highlight Normal guifg=#e0e0e0 guibg=#242428 gui=NONE ctermfg=254 ctermbg=235 cterm=NONE
+highlight NonText guifg=#99968b guibg=#242428 gui=NONE ctermfg=246 ctermbg=235 cterm=NONE
 
 " Copy/paste
 " system clipboard
