@@ -1,5 +1,9 @@
 # Dotfiles
-![Preview](preview.png)
+![Preview](preview.png)  
+
+## Infos
+- OS: `Gentoo`
+- Drivers: `nvidia (closed source)`
 
 ## Main apps
 ### Open-source apps
