@@ -36,5 +36,5 @@ colors: *eerie-pastel
 font:
   size: 10
   normal:
-    family: Cozette
+    family: Terminus
     style: Regular
