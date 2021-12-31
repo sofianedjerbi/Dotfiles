@@ -1,5 +1,6 @@
 # Dotfiles
 ![Preview](preview.png)  
+![Preview2](preview2.png)  
 
 ## Info
 - OS: `Gentoo`
