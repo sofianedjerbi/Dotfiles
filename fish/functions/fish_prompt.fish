@@ -19,7 +19,7 @@ function fish_prompt
     set -l error_color (set_color red -o)
 
     # If we're in a git repo
-    if test -d .git
+    if git_is_repo
         # Get branch name
         set -l branch (git symbolic-ref --short HEAD)
         # Echo branch name
@@ -28,16 +28,16 @@ function fish_prompt
         set -l git_meta ""
         # Check if files are added
         if test (git ls-files --others --exclude-standard | wc -w) -gt 0
-            set git_meta "$git_meta?"
+            set git_meta "$git_meta?/"
         end
         # Check if files are stashed
         if test (git stash list | wc -l) -gt 0
-            set git_meta "$git_meta\$"
+            set git_meta "$git_meta✮/"
         end
         # Check if dirty/staged
         if git diff --no-ext-diff --quiet --exit-code
-            git_is_dirty && set git_meta "$git_meta⨯"
-            git_is_staged && set git_meta "$git_meta●"
+            git_is_dirty && set git_meta "$git_meta⨯/"
+            git_is_staged && set git_meta "$git_meta●/"
         end
         # Get the nb of commits
         set -l commit_count (git rev-list --count --left-right (git remote)/$branch...HEAD)
