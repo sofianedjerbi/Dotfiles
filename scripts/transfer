@@ -1,0 +1,45 @@
+#!/bin/fish
+# Upload a file or a directory to transfer.sh
+# By nl5887, forked by Sofiane DJERBI (@Kugge)
+
+if test (count $argv) -eq 0
+echo "No arguments specified. Usage:"
+echo "transfer /tmp/test.md"
+echo "cat /tmp/test.md | transfer test.md"
+return 1
+end
+
+# get temporarily filename, output is written to this file so that we can show a progress bar
+set tmpfile ( mktemp -t transferXXX )
+
+# upload stdin or file
+set file $argv[1]
+
+#if tty -s
+set basefile (basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
+
+if not test -e $file
+    echo "File $file doesn't exists."
+    return 1
+end
+
+if test -d $file
+    # zip directory and transfer
+    set zipfile ( mktemp -t transferXXX.zip )
+    zip -r -q - $file >> $zipfile
+    curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
+    rm -f $zipfile
+else
+    # transfer file
+    curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
+end
+#else
+# transfer pipe
+#    curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
+#end
+
+# output link
+cat $tmpfile
+echo ""
+# clean temp file
+rm -f $tmpfile
