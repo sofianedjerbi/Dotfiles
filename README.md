@@ -6,34 +6,26 @@
 - OS: `Gentoo`
 - Drivers: `nvidia (closed source)`
 
-## Main apps
-### Open-source apps
+## Main packages
+### Core apps
 ```
-eselect-repository
-cava
+xorg
 bspwm
 sxhkd
-mpd
-ncmpcpp
+pulseaudio
+```
+### Theme apps
+```
+cava
 nvim
-htop
 alacritty
-xorg-server
 vim-plug
-qutebrowser
 rofi
 polybar
-pulseaudio
 neofetch
 spotifyd
 spotify-tui
-playerctl
-scrollz
-ueberzug (nymphos)
-```
-### Proprietary apps
-```
-discord
+zscroll
 ```
 
 ## Credits
