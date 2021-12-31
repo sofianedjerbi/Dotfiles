@@ -62,7 +62,6 @@ let g:instant_username = "Kugge" " Remote username
 
 " IndentLine chars
 let g:indentLine_char = "┆"
-let g:indentLine_color_gui = "#1C2A35"
 
 """"""""""""""""""
 " User interface "
@@ -163,18 +162,21 @@ set mouse=a
 """"""""""""""""
 
 " Use terminal colors
-set termguicolors
+set notermguicolors t_Co=16
 
 " Set nb column color (see alacritty colors)
-hi LineNr guifg=#BD924C
+hi LineNr guifg=#466986
 "hi LineNr guibg=#0C161D
 
 " Change highlight search color (see alacritty colors)
-hi Search guibg=#BD924C
+hi Search guibg=#FFD6A5
 
 " Change ~ symbol color (no line)
 hi NonText guifg=#9F793B
 
 " Change comment colors and set them to italic
 hi Comment gui=italic guifg=#466986
+
+" Indent char color
+let g:indentLine_color_gui = "#1C2A35"
 
