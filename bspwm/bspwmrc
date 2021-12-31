@@ -23,6 +23,10 @@ xsetroot -solid "#FFEBF3"
 #picom: transparency
 #pgrep -x picom > /dev/null || picom --experimental-backends --daemon
 
+# Echo song status in song file
+echo "Welcome, user! Happy day ~" \
+    > $HOME/.config/spotifyd/song.txt
+
 #################
 # LAYOUT CONFIG #
 #################
