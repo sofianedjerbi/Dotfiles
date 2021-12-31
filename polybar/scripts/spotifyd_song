@@ -1,5 +1,6 @@
 #!/bin/bash
 # Author: Sofiane DJERBI (@Kugge)
 # Return the song played on spotifyd with scrolling effect
+
 zscroll -d 0.2 -l 43 -u t "cat $HOME/.config/spotifyd/song.txt" &
 wait
