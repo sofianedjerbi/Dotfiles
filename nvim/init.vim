@@ -161,8 +161,9 @@ set mouse=a
 " Colors setup "
 """"""""""""""""
 
-" Use terminal colors
-set notermguicolors t_Co=16
+" Set terminal colors
+set termguicolors
+colorscheme palenight
 
 " Set nb column color (see alacritty colors)
 hi LineNr guifg=#466986
