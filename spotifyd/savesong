@@ -10,9 +10,7 @@ SONGLOC="$HOME/.config/spotifyd/song.txt"
 SONG=$(playerctl -p spotifyd metadata -f "{{ title }} - {{ artist }}")
 
 # Save song if not empty else save statut
-if [ -z "$SONG" ]; then
-    # echo "No song are playing."
-else
+if [ ! -z "$SONG" ]; then
     echo $SONG > $SONGLOC
 fi
 
