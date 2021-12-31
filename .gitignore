@@ -1,3 +1,15 @@
+fontforge
+coc*
+spotify-tui
+.keep
+pulse
+pavucontrol*
+omf
+nvim/plugged
+fonts/
+configstore
+dconf
+*.old
 qutebrowser
 GIMP
 coc
