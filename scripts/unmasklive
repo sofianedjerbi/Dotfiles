@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Author: Sofiane DJERBI (@Kugge)
+#
+# This scripts unmask live builds (9999)
+#
+# It is recommended to update them with:
+#     emerge @smart-live-rebuild
+#     (smart-live-rebuild package) 
+#
+
+# Create live rebuild keywords file
+EMERGELIVE_KEYWORDS=/etc/portage/package.accept_keywords/live.keywords
+if [ ! -f $EMERGELIVE_KEYWORDS ]; then
+    echo "Creating live keywords file..."
+    touch $EMERGELIVE_KEYWORDS
+fi
+
+# Look for parameters
+if [ "$#" -ne 1 ]; then
+    echo "Unmask a live package (version 9999)."
+    echo "Usage: emergelive <package>"
+    exit 1
+fi
+
+
+# Check if the user is using the full portage path
+if [[ ! "$1" =~ "/" ]]; then
+    echo "Please use the full portage path."
+    echo "Example: emergelive www-client/qutebrowser"
+    exit 1
+fi
+
+# Check for version
+if [[ "$1" =~ "=" ]] || [[ "$1" =~ "-9999" ]]; then
+    echo "This script does not support versions"
+    exit 1
+fi
+
+# Append keyword
+if ! grep -q $1 $EMERGELIVE_KEYWORDS; then
+    echo "# Unmasking $1 live build" >> $EMERGELIVE_KEYWORDS
+    echo -e "=$1-9999 **\n" >> $EMERGELIVE_KEYWORDS
+else
+    echo "Live package already unmasked."
+    exit 1
+fi
+
+# User advice
+echo "You can now install your package with:"
+echo "emerge =$1-9999"

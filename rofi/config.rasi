@@ -1,3 +1,9 @@
+/*
+* Author: Sofiane DJERBI (@Kugge)
+* Rofi config
+*/
+
+/* Main config */
 configuration {
   display-run: ":: ";
   drun-display-format: "{name}";
@@ -5,8 +11,6 @@ configuration {
   show-icons: false;
 }
 
-@theme "~/.config/rofi/black.rasi"
+/* Call the theme */
+@theme "~/.config/rofi/theme.rasi"
 
-window {
-    border: 0px;
-}

@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+# Dependency: playerctl
+# Used by Spotifyd: Save song to a text file
+# So it can be accessed by any app. (Polybar)
+
+# Song file location
+SONGLOC="$HOME/.config/spotifyd/song.txt"
+# Get song name "title - artist"
+SONG=$(playerctl -p spotifyd metadata -f "{{ title }} - {{ artist }}")
+
+# Save song if not empty else save statut
+if [ -z "$SONG" ]; then
+    # echo "No song are playing."
+else
+    echo $SONG > $SONGLOC
+fi
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+# Change the volume of every audio file
+
+for SINK in `pacmd list-sinks | grep 'index:' | cut -b12-`
+do
+       	pactl set-sink-volume $SINK $1
+done

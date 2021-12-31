@@ -1,0 +1,17 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+#
+# This is a script that copy user binaries to
+# the .config/scripts folder.
+# Along with other important gentoo files.
+# So it can be available on Github.
+
+# Copy binaries
+cp -a /usr/local/bin/. $HOME/.config/scripts/
+cp -a /usr/local/sbin/. $HOME/.config/scripts/
+
+# Copy kernel config
+cp /usr/src/linux/.config ./gentoo/kernel.conf
+
+# Copy portage make config
+cp /etc/portage/make.conf ./gentoo/make.conf

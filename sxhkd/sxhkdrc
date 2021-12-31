@@ -1,85 +1,94 @@
+# SXHKD
+# Author: Sofiane DJERBI (@Kugge)
 #
-# wm independent hotkeys
-#
+# Some settings might be strange since
+# I'm working with an AZERTY keyboard.
+# Might be switching to a QWERTY keyboard...
 
-# terminal emulator
-super + Return
-	alacritty
+##########################
+# WM INDEPENDENT HOTKEYS #
+##########################
 
-# program launcher
-super + @space
-	rofi -show run
-
-# make sxhkd reload its configuration files:
+# reload sxhkd config
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
+# Audio keyboard keys
+XF86AudioLowerVolume
+    change-volume -1%
 
-# quit bspwm
-super + alt + q
-	bspc quit
+XF86AudioRaiseVolume
+	change-volume +1%
 
-# restart bspwm
-super + alt + r
-	bspc wm -r
+XF86AudioMute
+        amixer -D pulse set Master toggle
 
-# close and kill
-super + {_,shift + }q
-	bspc node -{c,k}
+###############
+# APP HOTKEYS #
+###############
 
-# alternate between the tiled and monocle layout
+# terminal emulator: alacritty
+super + Return
+	alacritty
+
+# program launcher: rofi
+super + @space
+	rofi -show run
+
+# take screenshots
+Print
+    sleep 0.2; \
+    scrot -s -f $HOME/'Pictures/Screenshots/%d-%m-%Y_%H-%M-%S-$wx$h.png'
+
+control + Print
+    scrot $HOME/'Pictures/Screenshots/%d-%m-%Y_%H-%M-%S-$wx$h.png'
+
+#################
+# BSPWM HOTKEYS #
+#################
+
+# Layout options #
+
+# cycle tiled and monocle layout
 super + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# Meta BSPWM commands #
 
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
 
-#
-# state/flags
-#
+# Window manipulation #
+
+# close/kill window
+super + {_,shift + }q
+	bspc node -{c,k}
 
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# Window focus/swap #
 
-#
-# focus/swap
-#
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-
-super + alt + {Left,Down,Up,Right}
-	bspc node -f {west,south,north,east}
-
-
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+super + {colon,exclam}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
+super + {Tab,twosuperior}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
@@ -88,34 +97,11 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# Change desktop or send window to desktop (azerty)
+# focus desktop or send window to desktop (azerty)
 super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+        bspc {desktop -f,node -d} '^{1-9,10}'
 
-
-#
-# preselect
-#
-
-# preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
+# move/resize #
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
@@ -128,26 +114,3 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-#
-# Shortcuts
-#
-
-# Audio
-XF86AudioLowerVolume
-	bash $HOME/.config/sxhkd/change_main_volume.sh -1%
-
-XF86AudioRaiseVolume
-	bash $HOME/.config/sxhkd/change_main_volume.sh +1%
-
-XF86AudioMute
-	amixer -D pulse set Master toggle
-
-# Print screen
-# Without the sleep scrot crashes
-Print
-    sleep 0.2; \
-    scrot -s -f $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
-
-control + Print
-    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'

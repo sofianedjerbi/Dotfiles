@@ -1,0 +1,17 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+# Update every local repositories in ./local/src
+# Assumed they are all gits and there's a script
+# "install" at the root of the repo that compile and
+# copy the binary inside a dir of $PATH
+
+# Goto source dir
+cd ~/.local/src/
+# Go in each repo
+for dir in *; do
+    echo "Processing $dir"
+    cd $dir
+    ./install
+    cd ..
+done
+

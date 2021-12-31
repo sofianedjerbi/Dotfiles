@@ -1,0 +1,7 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+# Return the song played on spotifyd
+
+cat ~/.config/spotifyd/song.txt | zscroll -d 0.3 \
+					              -l 43 \
+	                              -u t "cat $HOME/.config/spotifyd/song.txt"

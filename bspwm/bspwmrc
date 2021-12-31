@@ -1,54 +1,64 @@
-#! /bin/sh
+#!/bin/sh
+# Author: Sofiane DJERBI (@Kugge)
 
-# If sxhkd is running, kill it to prevent multiple instances
-if ps -A | grep sxhkd; then
-	killall -q sxhkd
-fi
+#########################
+# START NEEDED SOFTWARE #
+#########################
 
-# If polybar is running, kill it to prevent multiple instances
-if ps -A | grep polybar; then
-        killall -q polybar
-fi
-
-# If spotifyd is running, kill it to prevent multiple instances
-if ps -A | grep spotifyd; then
-        killall -q spotifyd
-fi
-
-# If picom is running, kill it to prevent multiple instances
-if ps -A | grep picom; then
-        killall -q picom 
-fi
-
-# User programs
-# Polybar
-bash $HOME/.config/polybar/launch.sh -l=trace
-
-# Spotifyd
-spotifyd
-
-# Background
-feh --bg-fill $HOME/.config/wallpaper.png
-
-# Transparancy
-#picom --experimental-backends --daemon
-
-# Sxhkd
+# sxhkd: keyboard shortcuts
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-# Screens
-bspc monitor -d I II III IV V VI VII VIII IX X
+# polybar: dynamic bar
+pgrep -x polybar > /dev/null || .config/polybar/launch_polybar -l=trace &
 
-# Window configuration
-bspc config border_width                 0 
-bspc config window_gap                   0
-#bspc config active_border_color         \#96a0b0
-#bspc config normal_border_color         \#96a0b0
-#bspc config focused_border_color        \#96a0b0
-#bspc config pointer_motion_interval      50ms
+# spotifyd: spotify daemon
+pgrep -x spotifyd > /dev/null || spotifyd &
 
-# BSPWM misc config
+# feh: wallpaper
+#feh --bg-fill $HOME/.config/wallpaper.png
+
+# xsetroot: Solid wallpaper
+xsetroot -solid "#FFEBF3"
+
+#picom: transparency
+#pgrep -x picom > /dev/null || picom --experimental-backends --daemon
+
+#################
+# LAYOUT CONFIG #
+#################
+
+# Screen names
+bspc monitor -d 0 1 2 3 4 5 6 7 8 9
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-bspc config top_padding		     20 # Polybar gap
+
+#################
+# WINDOW CONFIG #
+#################
+
+# Colors
+bspc config focused_border_color "#C8CFF3"
+bspc config active_border_color  "#C8CFF3"
+bspc config normal_border_color  "#C8CFF3"
+
+# Sizes
+bspc config border_width         0
+bspc config window_gap           10
+
+# Check pointer motion interval, fix alacritty bugs
+bspc config pointer_motion_interval 50ms
+
+##############
+# APP CONFIG #
+##############
+
+# peek: record gif (floating by default)
+bspc rule -a Peek state=floating
+
+# Browser to desktop 2
+bspc rule -a qutebrowser desktop='^2'
+
+# Discord to desktop 3
+bspc rule -a discord desktop='^3'
+

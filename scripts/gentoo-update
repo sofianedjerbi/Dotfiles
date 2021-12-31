@@ -1,0 +1,16 @@
+#!/bin/sh
+# Author: Sofiane DJERBI
+#
+# A simple wrapper that sync portage
+# and update @world
+
+# Sync packages
+emerge-webrsync
+emerge --sync
+
+# Upgrade world
+emerge -auDN @world
+
+# Upgrade live builds
+emerge @smart-live-rebuild
+

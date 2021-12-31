@@ -1,0 +1,63 @@
+/* Author: Sofiane DJERBI (@Kugge)
+ * Rofi theme file
+ */
+
+* {
+  font: "scientifica 12";
+  bg: #0E151B;
+  bg-alt: #FFEBF3;
+
+  fg: #FFEBF3;
+  fg-alt: #FA8BB5;
+
+  text-color: @fg-alt;
+  background-color: @bg;
+}
+
+window{
+  border-color: @bg-alt;
+  border: 1;
+  margin: 0;
+  padding: 10;
+  spacing: 0;
+  width: 10%;
+}
+
+element {
+  padding: 4;
+  orientation: vertical;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @bg;
+}
+
+element-text, element-icon {
+  vertical-align: 0.5;
+  background-color: inherit;
+  text-color: inherit;
+}
+
+entry {
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  columns: 1;
+  lines: 5;
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+prompt {
+  text-color: @fg;
+}
+

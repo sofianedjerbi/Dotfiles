@@ -1,40 +1,75 @@
+# Author: Sofiane DJERBI (@Kugge)
+# Alacritty configuration
+
+##########
+# WINDOW #
+##########
+
 window:
-  opacity: 1.0  # value range is 0 ~ 1
+    opacity: 1.0
+    padding:
+       x: 20
+       y: 20
 
-schemes:
-  # Eerie black theme.
-  eerie-pastel: &eerie-pastel
-    # Default colors
-    primary:
-      background: '0x242428' #
-      foreground: '0xaeb5c1'
-
-# Normal colors
-  normal:
-    black:   '0x3F3F3F'
-    red:     '0x705050'
-    green:   '0x60B48A'
-    yellow:  '0xDFAF8F'
-    blue:    '0x9AB8D7'
-    magenta: '0xDC8CC3'
-    cyan:    '0x8CD0D3'
-    white:   '0xDCDCCC'
-
-  # Bright colors
-  bright:
-    black:   '0x709080'
-    red:     '0xDCA3A3'
-    green:   '0x72D5A3'
-    yellow:  '0xF0DFAF'
-    blue:    '0x94BFF3'
-    magenta: '0xEC93D3'
-    cyan:    '0x93E0E3'
-    white:   '0xFFFFFF'
-
-colors: *eerie-pastel
+#########
+# FONTS #
+#########
 
 font:
-  size: 10
-  normal:
-    family: Terminus
-    style: Regular
+    size: 11
+    # Normal font
+    normal:
+        family: scientifica
+        style: Regular
+    # Bold font
+    bold:
+        family: scientifica
+        style: Bold
+    # Italic font
+    italic:
+        family: scientifica
+        style: Italic
+
+#########
+# THEME #
+#########
+
+# TODO: Add dim ?
+# Based on my wallpaper. See /wallpaper.png
+colors:
+    # Default colors
+    primary:
+        background: '#0E151B'
+        foreground: '#FFEBF3'
+
+        bright_foreground: '#E9E7EF'
+        bright_background: '#233543' # not sure
+
+    # Cursor colors
+    cursor:
+        text:   '#FFEBF3'
+        cursor: '#FFEBF3'
+
+    # Normal colors
+    normal:
+        black:   '#060B0E'
+        red:     '#D3367F'
+        green:   '#778349'
+        yellow:  '#9F793B'
+        blue:    '#3F6A8D'
+        magenta: '#FA8BB5'
+        cyan:    '#369691'
+        white:   '#FFEBF3'
+
+    # Bright colors
+    bright:
+        black:   '#0C161D'
+        red:     '#D8508F'
+        green:   '#8F9D58'
+        yellow:  '#BD924C'
+        blue:    '#7eaac7'
+        magenta: '#FC9CC3'
+        cyan:    '#4BBEB8'
+        white:   '#FFF5F9'
+
+

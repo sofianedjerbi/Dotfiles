@@ -1,0 +1,48 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+#
+# Update the kernel given a config file
+# Also rebuild initramfs and grub config
+# /boot need to be mounted. See fstab(5)
+#
+# Does not delete old kernels in /boot.
+
+# Go to selected kernel (eselect kernel)
+cd /usr/src/linux
+
+if [ "$#" -ne 1 ]; then
+    echo "Update the kernel given a config file."
+    echo "Usage: kernel-update <path to old .config>"
+    exit 1
+fi
+
+if [ ! -f $1 ]; then
+    echo "Config file $1 does not exists"
+    exit 1
+fi
+
+# Copy oldconfig
+cp $1 ./
+cp $1 ./oldconfig.kernel-update.save # Just in case
+
+# Update config
+make oldconfig
+
+# Compile kernel (default: 12 jobs)
+make -j12
+
+# Install kernel
+make install
+
+# Modules
+make modules_install
+emerge @module-rebuild
+emerge @x11-module-rebuild # Might be redundant
+
+# Rebuild initramfs
+genkernel --install --kernel-config=/usr/src/linux/.config initramfs
+
+# Grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "Kernel update finished."
