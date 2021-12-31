@@ -12,8 +12,10 @@ fonts/
 configstore
 dconf
 *.old
-qutebrowser
 GIMP
 coc
 gimp
+qutebrowser/bookmarks
+qutebrowser/qsettings
+qutebrowser/quickmarks
 discord
