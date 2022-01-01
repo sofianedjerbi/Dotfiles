@@ -12,3 +12,6 @@ if [ ! -z "$spt_song" ]; then
     echo $spt_song > ~/.config/spotifyd/song.txt
 fi
 
+# If needed change status
+~/.config/spotifyd/savestatus
+

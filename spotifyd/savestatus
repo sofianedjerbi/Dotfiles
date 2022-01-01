@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author: Sofiane DJERBI (@Kugge)
+# Dependency: spotify-tui
+# Used by Spotifyd: Save status to a text file
+# So it can be accessed by any app. (Polybar)
+
+spt_status=$(spt playback --format "%s")
+if [[ "$spt_status" == *"▶"* ]]; then
+   echo ⏸ > ~/.config/spotifyd/status.txt
+else
+   echo ⏵ > ~/.config/spotifyd/status.txt
+fi
+

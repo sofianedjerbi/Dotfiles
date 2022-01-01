@@ -2,13 +2,8 @@
 # Author: Sofiane DJERBI (@Kugge)
 # Return the status of spotify-tui
 
+# Toggle playback
 spt playback -t
-
-spt_status=$(spt playback --format "%s")
-
-if [[ "$spt_status" == *"▶"* ]]; then
-    echo ⏸ > ~/.config/spotifyd/status.txt
-else
-    echo ⏴ > ~/.config/spotifyd/status.txt
-fi
+# Change status
+~/.config/spotifyd/savestatus
 
